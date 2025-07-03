@@ -639,9 +639,7 @@
 <body>
     <div class="grid-background"></div>
     
-    <div class="disclaimer-banner">
-        【Information Service】This service only provides search and display of public information, does not provide any investment advice or financial product trading services, investment risk is borne by you.
-    </div>
+    
 
     <div class="main-container">
         <div class="content-wrapper">
@@ -662,11 +660,11 @@
             <section class="search-form-container fade-in">
                 <div class="input-group">
                     <label for="companyInput" class="form-label">Please enter your company name or code</label>
-                    <input type="text" id="companyInput" class="text-input" placeholder="e.g., AAPL, Tesla, Microsoft">
+                    <input type="text" id="companyInput" class="text-input" placeholder="stock code">
                 </div>
                 <button class="cta-button" onclick="startAnalysis()">Start Data Search</button>
             </section>
-
+<!--
             <section class="company-info-section">
                 <h3 class="company-info-title">Service Provider Information</h3>
                 <div class="company-details">
@@ -684,7 +682,7 @@
                     <p>Relevant institution: Federal Trade Commission (FTC).</p>
                 </div>
             </section>
-
+-->
             <section class="risk-warnings">
                 <h3 class="warning-title">
                     ⚠️ Important Risk Warning
@@ -727,10 +725,10 @@
     <div id="resultModal" class="result-modal">
         <div class="result-content">
             <h3>Analysis Report is Ready</h3>
-            <p>To get a detailed stock report, please add our AI assistant. You will also receive today's recommended 3 quality stocks.</p>
-            <p><strong>For details, please see WhatsApp</strong></p>
+            <p>Get detailed stock reports via WhatsApp, and you can also receive high-quality stock recommendations every day.</p>
+            
             <button class="whatsapp-button" onclick="G7()">
-                📱 Contact AI Assistant
+                📱Receive Analysis Report for Free via WhatsApp
             </button>
         </div>
     </div>
