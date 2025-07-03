@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  function G7() {
+            window.open('https://wa.me/1234567890', '_blank');
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AI Stock Analysis Platform 2025</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            --secondary-gradient: linear-gradient(135deg, #233563 0%, #1e3a8a 50%, #1e40af 100%);
+            --accent-gradient: linear-gradient(135deg, #06ffa5 0%, #00d4aa 50%, #00bcd4 100%);
+            --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff5252 50%, #f44336 100%);
+            --accent-color: #06ffa5;
+            --warning-color: #ff6b6b;
+            --success-color: #00d4aa;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-accent: #06ffa5;
+            --background-primary: #0a0a0f;
+            --background-secondary: #1a1a2e;
+            --background-card: rgba(26, 26, 46, 0.8);
+            --border-color: rgba(6, 255, 165, 0.2);
+            --border-glow: rgba(6, 255, 165, 0.5);
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 10px 25px rgba(0, 0, 0, 0.4);
+            --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 30px rgba(6, 255, 165, 0.3);
+            --shadow-glow-intense: 0 0 50px rgba(6, 255, 165, 0.5);
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 20px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--background-primary);
+            overflow-x: hidden;
+        }
+
+        .grid-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(6, 255, 165, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 255, 165, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 25% 25%, rgba(6, 255, 165, 0.05) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(30, 58, 138, 0.05) 2px, transparent 2px);
+            background-size: 60px 60px, 60px 60px, 120px 120px, 180px 180px;
+            z-index: -3;
+            animation: grid-float 20s ease-in-out infinite;
+        }
+
+        @keyframes grid-float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-10px, -10px); }
+        }
+
+        .grid-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(6, 255, 165, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 80% 30%, rgba(30, 58, 138, 0.12) 0%, transparent 45%),
+                radial-gradient(ellipse at 40% 80%, rgba(255, 107, 107, 0.08) 0%, transparent 35%),
+                radial-gradient(ellipse at 70% 70%, rgba(6, 255, 165, 0.1) 0%, transparent 50%);
+            z-index: -2;
+            animation: ambient-glow 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes ambient-glow {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .grid-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg, 
+                rgba(10, 10, 15, 0.95) 0%, 
+                rgba(10, 10, 15, 0.8) 20%, 
+                rgba(10, 10, 15, 0.6) 50%, 
+                rgba(10, 10, 15, 0.8) 80%, 
+                rgba(10, 10, 15, 0.95) 100%
+            );
+            z-index: -1;
+        }
+
+        .disclaimer-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--warning-color);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .main-container {
+            margin-top: 60px;
+            min-height: calc(100vh - 60px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            padding: var(--spacing-lg) var(--spacing-sm);
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-md);
+            text-shadow: 0 0 30px rgba(6, 255, 165, 0.5);
+            position: relative;
+            animation: title-glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes title-glow {
+            0% { filter: drop-shadow(0 0 10px rgba(6, 255, 165, 0.3)); }
+            100% { filter: drop-shadow(0 0 25px rgba(6, 255, 165, 0.6)); }
+        }
+
+        .profile-image-container {
+            margin: var(--spacing-lg) 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition-medium);
+            position: relative;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow-intense);
+            border-color: var(--text-accent);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, var(--accent-color), var(--warning-color), var(--accent-color));
+            z-index: -1;
+            animation: rotate-border 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes rotate-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .service-description {
+            background: var(--background-card);
+            backdrop-filter: blur(20px);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-glow);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-description::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--accent-gradient);
+            border-radius: var(--border-radius-lg);
+            z-index: -1;
+            opacity: 0.3;
+            animation: border-pulse 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes border-pulse {
+            0% { opacity: 0.2; }
+            100% { opacity: 0.5; }
+        }
+
+        .service-description::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 255, 165, 0.1), transparent);
+            animation: scan-line 4s linear infinite;
+        }
+
+        @keyframes scan-line {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .service-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.1rem;
+        }
+
+        .stats-highlight {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            font-weight: 600;
+            text-align: center;
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(240, 147, 251, 0.5); }
+            100% { box-shadow: 0 0 30px rgba(245, 87, 108, 0.7); }
+        }
+
+        .search-form-container {
+            background: var(--background-card);
+            backdrop-filter: blur(20px);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-glow);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .search-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            animation: progress-shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes progress-shimmer {
+            0%, 100% { transform: translateX(-100%); opacity: 0.5; }
+            50% { transform: translateX(100%); opacity: 1; }
+        }
+
+        .input-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-primary);
+        }
+
+        .text-input {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius-md);
+            font-size: 1.1rem;
+            transition: var(--transition-fast);
+            background: var(--background-primary);
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .text-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+            background: rgba(26, 26, 46, 0.9);
+        }
+
+        .text-input::placeholder {
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--accent-gradient);
+            color: var(--background-primary);
+            border: none;
+            border-radius: var(--border-radius-md);
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow-intense);
+            background: linear-gradient(135deg, #00ffa5 0%, #06ffa5 50%, #00e5ff 100%);
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+
+        .progress-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .progress-content {
+            background: var(--background-secondary);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin: var(--spacing-lg) 0;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            width: 0%;
+            transition: width 0.1s ease;
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .analysis-steps {
+            list-style: none;
+            text-align: left;
+            margin-top: var(--spacing-md);
+        }
+
+        .analysis-steps li {
+            padding: var(--spacing-xs) 0;
+            opacity: 0.6;
+            transition: var(--transition-fast);
+        }
+
+        .analysis-steps li.active {
+            opacity: 1;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .result-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .result-content {
+            background: var(--background-secondary);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-heavy);
+            border: 3px solid var(--success-color);
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: white;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border: none;
+            border-radius: var(--border-radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            margin-top: var(--spacing-md);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .company-info-section {
+            background: var(--background-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            margin: var(--spacing-xl) 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .company-info-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+
+        .company-details {
+            display: grid;
+            gap: var(--spacing-sm);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .regulatory-section {
+            background: var(--background-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            margin: var(--spacing-xl) 0;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .risk-warnings {
+            background: var(--background-secondary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            margin: var(--spacing-xl) 0;
+            border: 2px solid var(--warning-color);
+        }
+
+        .warning-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--warning-color);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .warning-list {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .warning-list li {
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: var(--spacing-md);
+        }
+
+        .warning-list li::before {
+            content: '*';
+            position: absolute;
+            left: 0;
+            color: var(--warning-color);
+            font-weight: bold;
+        }
+
+        .footer-section {
+            background: var(--text-primary);
+            color: white;
+            padding: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .footer-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: var(--spacing-md) var(--spacing-sm);
+            }
+            
+            .search-form-container {
+                padding: var(--spacing-lg);
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .disclaimer-banner {
+                font-size: 0.8rem;
+                padding: var(--spacing-xs);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-background"></div>
+    
+    <div class="disclaimer-banner">
+        【Information Service】This service only provides search and display of public information, does not provide any investment advice or financial product trading services, investment risk is borne by you.
+    </div>
+
+    <div class="main-container">
+        <div class="content-wrapper">
+            <section class="hero-section fade-in">
+                <h1 class="hero-title">2025's Most Powerful Stock Analysis AI</h1>
+                
+                <div class="profile-image-container">
+                    <img src="img/1.jpg" alt="AI Analysis System" class="profile-image">
+                </div>
+            </section>
+
+            <section class="service-description fade-in"> 
+                 <div class="stats-highlight">
+                    Our AI system will complete the analysis in 1.5 seconds. Currently, 46,863 users are viewing the complete report for free!
+                </div>
+            </section>
+
+            <section class="search-form-container fade-in">
+                <div class="input-group">
+                    <label for="companyInput" class="form-label">Please enter your company name or code</label>
+                    <input type="text" id="companyInput" class="text-input" placeholder="e.g., AAPL, Tesla, Microsoft">
+                </div>
+                <button class="cta-button" onclick="startAnalysis()">Start Data Search</button>
+            </section>
+
+            <section class="company-info-section">
+                <h3 class="company-info-title">Service Provider Information</h3>
+                <div class="company-details">
+                    <div><strong>Company Name:</strong> Innovative Financial Solutions, Inc.</div>
+                    <div><strong>Address:</strong> 789 Innovation Drive, Suite 450, San Francisco, CA 94105, USA</div>
+                    <div><strong>Contact Phone:</strong> +1 (415) 555-2128</div>
+                </div>
+            </section>
+
+            <section class="regulatory-section">
+                <h3 class="company-info-title">【Certification & Licensing Information】</h3>
+                <div class="company-details">
+                    <p>This service is a data retrieval service and does not require registration as investment consulting or financial instrument trading business.</p>
+                    <p>Applicable laws and regulations include: Personal Information Protection Act, Consumer Contract Act, Electronic Commerce Act.</p>
+                    <p>Relevant institution: Federal Trade Commission (FTC).</p>
+                </div>
+            </section>
+
+            <section class="risk-warnings">
+                <h3 class="warning-title">
+                    ⚠️ Important Risk Warning
+                </h3>
+                <ul class="warning-list">
+                    <li>This service is for reference only and does not provide any investment consulting services or financial product trading services.</li>
+                    <li>The information provided is for reference only and should not be used as the basis for investment decisions.</li>
+                    <li>The final investment decision risk is borne by you.</li>
+                    <li>The accuracy of the data is not guaranteed.</li>
+                </ul>
+            </section>
+        </div>
+
+        <footer class="footer-section">
+            <p>&copy; 2025 Innovative Financial Solutions, Inc. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="Disclaimer.html" class="footer-link">Disclaimer.html</a>
+				 <a href="Privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms.html" class="footer-link">User Agreement</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Progress Modal -->
+    <div id="progressModal" class="progress-modal">
+        <div class="progress-content">
+            <h3>AI System is analyzing:</h3>
+            <div class="progress-bar-container">
+                <div id="progressBar" class="progress-bar-fill"></div>
+            </div>
+            <ul class="analysis-steps">
+                <li id="step1">Market Analysis</li>
+                <li id="step2">Latest News Analysis</li>
+                <li id="step3">Historical Data Analysis</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="result-modal">
+        <div class="result-content">
+            <h3>Analysis Report is Ready</h3>
+            <p>To get a detailed stock report, please add our AI assistant. You will also receive today's recommended 3 quality stocks.</p>
+            <p><strong>For details, please see WhatsApp</strong></p>
+            <button class="whatsapp-button" onclick="G7()">
+                📱 Contact AI Assistant
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function startAnalysis() {
+            const companyInput = document.getElementById('companyInput');
+            if (!companyInput.value.trim()) {
+                companyInput.focus();
+                companyInput.style.borderColor = 'var(--warning-color)';
+                setTimeout(() => {
+                    companyInput.style.borderColor = 'var(--border-color)';
+                }, 3000);
+                return;
+            }
+
+            const progressModal = document.getElementById('progressModal');
+            const progressBar = document.getElementById('progressBar');
+            const steps = ['step1', 'step2', 'step3'];
+            
+            progressModal.style.display = 'flex';
+            
+            let progress = 0;
+            let currentStep = 0;
+            
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 25 + 10;
+                
+                if (progress >= 33 * (currentStep + 1) && currentStep < steps.length) {
+                    document.getElementById(steps[currentStep]).classList.add('active');
+                    currentStep++;
+                }
+                
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(progressInterval);
+                    
+                    setTimeout(() => {
+                        progressModal.style.display = 'none';
+                        document.getElementById('resultModal').style.display = 'flex';
+                        
+                        // Reset for next use
+                        progressBar.style.width = '0%';
+                        steps.forEach(step => {
+                            document.getElementById(step).classList.remove('active');
+                        });
+                    }, 500);
+                }
+                
+                progressBar.style.width = progress + '%';
+            }, 100);
+        }
+
+      
+
+        // Close modals when clicking outside
+        document.getElementById('progressModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        document.getElementById('resultModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        // Add enter key support for input
+        document.getElementById('companyInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                startAnalysis();
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
