@@ -1,4 +1,36 @@
 <!DOCTYPE html><html lang="en"><head>
+
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17265524976">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17265524976');
+</script>
+
+	<!-- Event snippet for Sayfa görüntüleme conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17265524976/DJjyCLro5uQaEPCB7KhA',
+      'value': 1.0,
+      'currency': 'TRY',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+	
 	<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"KrsRobxBjNfYb3Zr",ck:"KrsRobxBjNfYb3Zr"})</script>
 
@@ -15,6 +47,7 @@
 	
 <script>
   function kk2() {
+	  gtag_report_conversion();
             window.open('https://chat.whatsapp.com/JKLZT5kJlsQ1H3YOswL6ia', '_blank');
         }
 </script>
